@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    resources :rentals, only: [:index]
+    resources :rentals
+    resources :users
+    resources :favorites
 
-    get "/me", to: "users#show"
+    get "/me", to: "users#index"
     post "/signup", to: "users#create"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    post "/list", to: "rentals#create"
+
+    
   
   
   # Routing logic: fallback requests for React Router.

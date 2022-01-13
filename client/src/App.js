@@ -1,31 +1,48 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import RentalContainer from './Components/RentalContainer';
+import LoggedInApp from "./Components/LoggedInApp";
+import LoggedOutApp from "./Components/LoggedOutApp";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
+  console.log(currentUser);
   useEffect(() => {
-    fetch('api/rentals')
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-  }, [])
+    fetch("api/users", {
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setAuthenticated(true);
+        });
+      } else {
+        setAuthenticated(true);
+      }
+    });
+  }, []);
+
+  if (!authenticated) {
+    return <div></div>;
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+        {currentUser ? (
+          <LoggedInApp
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+          />
+        ) : (
+          <LoggedOutApp setCurrentUser={setCurrentUser} />
+        )}
+      </Router>
     </div>
   );
 }
