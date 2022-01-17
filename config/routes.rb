@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users
     resources :favorites
 
-    get "/me", to: "users#index"
+    get "/me", to: "users#me"
     post "/signup", to: "users#create"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"

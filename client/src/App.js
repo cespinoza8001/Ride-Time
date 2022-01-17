@@ -12,7 +12,7 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   console.log(currentUser);
   useEffect(() => {
-    fetch("api/users", {
+    fetch("api/me", {
       credentials: "include",
     }).then((res) => {
       if (res.ok) {
@@ -32,8 +32,8 @@ function App() {
 
 
   return (
-    <div className="App">
     <Router>
+    <div className="App">
         {currentUser ? (
           <LoggedInApp
             setCurrentUser={setCurrentUser}
@@ -42,8 +42,8 @@ function App() {
         ) : (
           <LoggedOutApp setCurrentUser={setCurrentUser} />
         )}
-      </Router>
     </div>
+    </Router>
   );
 }
 

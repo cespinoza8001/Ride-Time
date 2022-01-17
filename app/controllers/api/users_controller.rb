@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
         render json: User.all
     end
 
-    def show
+    def me
         if current_user
             render json: current_user, status: :ok
         else
@@ -21,6 +21,11 @@ class Api::UsersController < ApplicationController
         else
             render json: user.errors.full_messages, status: :unprocessable_entity
         end
+    end
+
+    def show
+        users = User.find(params[:id])
+        render json: users, status: :ok 
     end
 
     private

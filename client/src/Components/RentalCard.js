@@ -7,11 +7,13 @@ function RentalCard({
     const [userInfo, setUserInfo] = useState("");
 
     useEffect(() => {
+        console.log(user_id)
         fetch(`api/users/${user_id}`)
           .then((resp) => resp.json())
           .then((data) => {
+              console.log(data)
             setUserInfo({
-              username: data[0].username,
+              username: data.username,
             });
           });
       }, [user_id]);
