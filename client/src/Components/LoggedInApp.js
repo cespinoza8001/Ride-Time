@@ -9,17 +9,7 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
     };
     return (
       <div>
-        Welcome {currentUser.username}!
-        <p>
           <button onClick={handleLogout}>Logout</button>
-        </p>
-        {/* <Routes>
-        <Route
-          exact
-          path="/rentals"
-          element={<RentalContainer currentUser={currentUser} />}
-        />
-        </Routes> */}
       </div>
     );
   }

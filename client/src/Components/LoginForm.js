@@ -38,7 +38,7 @@ function LoginForm({ setCurrentUser }) {
   const navigate = useNavigate();
 
   const routeChange = () =>{ 
-    let path = `/rentals`; 
+    let path = `/home`; 
     navigate(path);
   }
   return (

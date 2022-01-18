@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Card, Row, Col } from 'react-bootstrap'
 
 function RentalCard({
-  rental: { id, year, make, model, cc, image_url, user_id },
+  rental: { id, year, make, model, price, city, state, image_url, user_id },
 }) {
 
     const [userInfo, setUserInfo] = useState("");
@@ -19,24 +20,21 @@ function RentalCard({
       }, [user_id]);
 
   return (
-    <div>
-      <div>
-        <img src={image_url} alt="rentalimage" width="500" height="400" />
-        <div>
-          <h4>
-            {year}, {make}, {model}
-          </h4>
-          <h4>CC: {cc}</h4>
-          <h4>{userInfo.username}</h4>
-        </div>
-      </div>
+    <Card border="dark" style={{ width: '20rem'}}>
+        <Card.Img src={image_url} alt="rentalimage"/>
+        <Card.Body>
+          <Card.Title>{year} {make} {model}</Card.Title>
+          <Card.Text>Location: {city},{state}</Card.Text>
+          <Card.Text>Price: ${price}/day</Card.Text>
+          <Card.Text>User: {userInfo.username}</Card.Text>
       {/* <button onClick={() => onFavorite(listing)} className={`emoji-button favorite ${favorite  ? "active" : ""}`}>
             {favorite ? "★" : "☆"}
           </button>
           <div>
             <button className="deleteButton" onClick={handleDeleteClick}>Delete</button> */}
-    </div>
-    // </div>
+        </Card.Body>    
+    </Card>
+    
   );
 }
 
