@@ -5,6 +5,7 @@ import RentalContainer from './Components/RentalContainer';
 import LoggedInApp from "./Components/LoggedInApp";
 import LoggedOutApp from "./Components/LoggedOutApp";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
 
 
   return (
+    <React.Fragment>
     <Router>
     <div className="App">
         {currentUser ? (
@@ -43,7 +45,15 @@ function App() {
           <LoggedOutApp setCurrentUser={setCurrentUser} />
         )}
     </div>
+    <Routes>
+        <Route
+          exact
+          path="/rentals"
+          element={<RentalContainer currentUser={currentUser} />}
+        />
+        </Routes>
     </Router>
+    </React.Fragment>
   );
 }
 

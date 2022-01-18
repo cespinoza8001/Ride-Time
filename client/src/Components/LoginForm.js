@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({ setCurrentUser }) {
   const [formData, setFormData] = useState({
@@ -33,6 +34,13 @@ function LoginForm({ setCurrentUser }) {
       }
     });
   };
+
+  const navigate = useNavigate();
+
+  const routeChange = () =>{ 
+    let path = `/rentals`; 
+    navigate(path);
+  }
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -56,7 +64,7 @@ function LoginForm({ setCurrentUser }) {
           />
         </p>
         <p>
-          <button type="submit">Log In</button>
+          <button type="submit" onClick={routeChange}>Log In</button>
         </p>
         <p>Don't have an account?</p>
         <p>

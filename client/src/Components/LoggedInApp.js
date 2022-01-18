@@ -1,6 +1,7 @@
 import RentalContainer from "./RentalContainer";
 import { Route, Routes } from "react-router-dom";
 
+
 function LoggedInApp({ setCurrentUser, currentUser }) {
     const handleLogout = () => {
       setCurrentUser(null);
@@ -12,13 +13,13 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
         <p>
           <button onClick={handleLogout}>Logout</button>
         </p>
-        <Routes>
+        {/* <Routes>
         <Route
           exact
-          path="/home"
+          path="/rentals"
           element={<RentalContainer currentUser={currentUser} />}
         />
-        </Routes>
+        </Routes> */}
       </div>
     );
   }
