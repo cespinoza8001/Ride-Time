@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
+import NavigationBar from './NavigationBar'
 
 function NewRentalForm({ currentUser }) {
 
@@ -11,20 +12,17 @@ function NewRentalForm({ currentUser }) {
         price: "",
         city: "",
         state: "",
-        user_id: currentUser
+        user_id: currentUser.id
     })
 
     const [isSelected, setIsSelected] = useState(false)
 
-    const handleNewRentalClick = () => {
-        setIsSelected(true)
-    }
 
     const handlePost = (e) => {
         e.preventDefault()
         console.log(rentalData)
         
-        fetch('api/rentals', {
+        fetch('api/list', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(rentalData),
@@ -45,6 +43,7 @@ function NewRentalForm({ currentUser }) {
     }
 
     return (
+        <React.Fragment>
         <div>
             <FormStyle>
             <form className="post-form" onSubmit={handlePost}>
@@ -73,7 +72,7 @@ function NewRentalForm({ currentUser }) {
             <label>
                 Model:
                 <input
-                id="make"
+                id="model"
                 placeholder="Your Bike's Model"
                 value={rentalData.model}
                 onChange={(e) => handleChange(e)}
@@ -126,6 +125,7 @@ function NewRentalForm({ currentUser }) {
             </form>
         </FormStyle>
         </div>
+        </React.Fragment>
     )
 }
 

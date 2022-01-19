@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import RentalContainer from './Components/RentalContainer';
@@ -9,8 +8,18 @@ import { Route, Routes } from "react-router-dom";
 import NavigationBar from './Components/NavigationBar';
 import HomePage from './Components/HomePage'
 import NewRentalForm from './Components/NewRentalForm';
+import LogOutPage from './Components/LogOutPage';
 
 function App() {
+
+  // const [search, setSearch] = useState("")
+
+  // function handleSearch(newSearch){
+  //   console.log(newSearch)
+  //   setSearch(newSearch)
+  // }
+
+
 
   const [currentUser, setCurrentUser] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
@@ -37,7 +46,6 @@ function App() {
 
   return (
     <React.Fragment>
-    <NavigationBar/>
     <Router>
     <div className="App">
         {currentUser ? (
@@ -49,18 +57,18 @@ function App() {
           <LoggedOutApp setCurrentUser={setCurrentUser} />
         )}
     </div>
-    <Routes>
+    {/* <Routes>
         <Route
           exact
           path="/home"
-          element={<HomePage currentUser={currentUser} />}
+          element={<HomePage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
         />
         </Routes>
     <Routes>
         <Route
           exact
           path="/rentals"
-          element={<RentalContainer currentUser={currentUser} />}
+          element={<RentalContainer currentUser={currentUser} search={search} onSearch={handleSearch}/>}
         />
         </Routes>
       <Routes>
@@ -70,6 +78,13 @@ function App() {
           element={<NewRentalForm currentUser={currentUser} />}
         />
         </Routes>
+      <Routes>
+        <Route
+          exact
+          path="/logout"
+          element={<LogOutPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+        />
+        </Routes> */}
     </Router>
     </React.Fragment>
   );

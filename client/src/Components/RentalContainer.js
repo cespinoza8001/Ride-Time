@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import RentalCard from "./RentalCard"
+import SearchBar from './SearchBar';
+import NavigationBar from './NavigationBar';
 
 
 
-function RentalContainer(){
+function RentalContainer({ search, onSearch }){
     
     const [rentals, setRentals] = useState([])
 
@@ -15,13 +17,18 @@ function RentalContainer(){
         })
       }, [])
 
-      const renderRentals = rentals.map(rental => {
+      const filteredRentals = rentals.filter(rental => {
+        return rental.city.toLowerCase().includes(search.toLowerCase())
+    });
+
+      const renderRentals = filteredRentals.map(rental => {
           return <RentalCard key={rental.id} rental={rental} />
       })
 
 
       return(
           <div>
+          <SearchBar onSearch={onSearch}/>
               {renderRentals}
           </div>
       )

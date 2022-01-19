@@ -1,17 +1,22 @@
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styled from 'styled-components'
 
 
-function NavigationBar(){
+function NavigationBar({ currentUser, setCurrentUser }){
+
+
     return (
     <Styles>
-        <Navbar expand="lg" sticky="top">
-            <Navbar.Brand href="/home">Ride Time</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-            <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar collapseOnSelect expand="lg">
+            <Navbar.Brand href="/">Ride Time</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ms-auto">
-                   <Nav.Item><Nav.Link href="/">Login</Nav.Link></Nav.Item> 
-                   <Nav.Item><Nav.Link href="/rentals">Rentals</Nav.Link></Nav.Item>
+                <NavDropdown title="Rentals" id="collasible-nav-dropdown">
+                   <NavDropdown.Item href="/rentals">View Rentals</NavDropdown.Item>
+                   <NavDropdown.Item href="/newrental">Create Rental</NavDropdown.Item>
+                   </NavDropdown>
+                   <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> 
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -35,5 +40,10 @@ const Styles = styled.div`
     &:hover {
         color: white;
     }
+
+    .sticky-nav {
+  position: sticky;
+  top: 0;
+}
 }
 `;

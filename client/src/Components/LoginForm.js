@@ -64,7 +64,7 @@ function LoginForm({ setCurrentUser }) {
           />
         </p>
         <p>
-          <button type="submit" onClick={routeChange}>Log In</button>
+          <button type="submit">Log In</button>
         </p>
         <p>Don't have an account?</p>
         <p>
