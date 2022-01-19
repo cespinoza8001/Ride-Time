@@ -5,7 +5,7 @@ import NavigationBar from './NavigationBar';
 
 
 
-function RentalContainer({ search, onSearch }){
+function RentalContainer({ search, onSearch, currentUser }){
     
     const [rentals, setRentals] = useState([])
 
@@ -22,7 +22,7 @@ function RentalContainer({ search, onSearch }){
     });
 
       const renderRentals = filteredRentals.map(rental => {
-          return <RentalCard key={rental.id} rental={rental} />
+          return <RentalCard key={rental.id} rental={rental} currentUser={currentUser.id}/>
       })
 
 

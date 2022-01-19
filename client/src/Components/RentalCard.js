@@ -4,10 +4,11 @@ import styled from 'styled-components'
 
 
 function RentalCard({
-  rental: { id, year, make, model, price, city, state, image_url, user_id },
+  rental: { id, year, make, model, price, city, state, image_url, user_id }, currentUser
 }) {
 
     const [userInfo, setUserInfo] = useState("");
+    const [isFavorited, setIsFavorited] = useState(false);
 
     useEffect(() => {
         console.log(user_id)
@@ -20,6 +21,48 @@ function RentalCard({
           });
       }, [user_id]);
 
+      const handleClick = () => {
+        console.log('hello')
+        fetch('api/favorites', {
+          method: 'POST',
+          headers: {"Content-Type": 'application/json'},
+          body: JSON.stringify({
+            user_id: currentUser,
+            rental_id: id 
+          }),
+        })
+        .then(res => res.json())
+        .then(() => {
+          console.log('success')
+          setIsFavorited(true)
+        })
+    }
+  
+      
+  
+      const handleUnfavorite = (e) => {
+        fetch('api/favorites')
+        .then(resp => resp.json())
+        .then(data => {
+  
+          const var1 = data.filter(rental => {
+            return (rental.user_id === currentUser) && (rental.id === id)
+          })
+          
+          if (var1 !== []) {
+            var1.forEach(fav => {
+              fetch(`api/favorites/${fav.id}`, {
+                method: 'DELETE'
+              })
+              .then(resp => resp.json())
+              .then(data => window.location.reload(false))
+          })
+        }
+      })
+        setIsFavorited(false)
+        
+      }
+
   return (
     <ListStyle>
     <CardGroup className="m-5 d-block">
@@ -30,10 +73,21 @@ function RentalCard({
           <Card.Text>Location: {city},{state}</Card.Text>
           <Card.Text>Price: ${price}/day</Card.Text>
           <Card.Text>User: {userInfo.username}</Card.Text>
-      {/* <button onClick={() => onFavorite(rental)} className={`emoji-button favorite ${favorite  ? "active" : ""}`}>
-            {favorite ? "★" : "☆"}
-          </button> */}
-            {/* <button className="deleteButton" onClick={handleDeleteClick}>Delete</button> */}
+          {isFavorited ? (
+              <button
+                onClick={(e) => handleUnfavorite(e)}
+                className="emoji-button favorite active"
+              >
+                ★
+              </button>
+            ) : (
+              <button id={id}
+                onClick={handleClick}
+                className="emoji-button favorite"
+              >
+                ☆
+              </button>
+            )}
         </Card.Body>    
     </Card>
     </CardGroup>
