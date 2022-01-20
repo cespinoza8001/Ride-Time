@@ -6,6 +6,7 @@ import LogOutPage from './LogOutPage';
 import React, { useState } from 'react';
 import NavigationBar from "./NavigationBar";
 import FavoritesPage from "./FavoritesPage";
+import AccountRentalContainer from "./AccountRentalContainer";
 
 
 
@@ -54,6 +55,13 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
           exact
           path="/favorites"
           element={<FavoritesPage currentUser={currentUser} />}
+        />
+        </Routes>
+        <Routes>
+        <Route
+          exact
+          path="/myrentals"
+          element={<AccountRentalContainer currentUser={currentUser} />}
         />
         </Routes>
       <Routes>

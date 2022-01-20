@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     post "/list", to: "rentals#create"
+    patch "/update", to: "rentals#update"
 
     
   

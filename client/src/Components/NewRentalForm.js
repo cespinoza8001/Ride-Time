@@ -45,7 +45,7 @@ function NewRentalForm({ currentUser }) {
     return (
         <React.Fragment>
         <div>
-            <FormStyle>
+            <LoginStyle>
             <form className="post-form" onSubmit={handlePost}>
             <h2>Rent Your Bike!</h2>
             <label>
@@ -123,7 +123,7 @@ function NewRentalForm({ currentUser }) {
             </label>
             <button type="submit">List For Rent!</button>
             </form>
-        </FormStyle>
+        </LoginStyle>
         </div>
         </React.Fragment>
     )
@@ -216,4 +216,52 @@ button {
     position: relative;
     bottom: 25px;
 }
+`
+
+const LoginStyle = styled.div`
+display: flex;
+justify-content: center;
+  h2 {
+    font-size: 40px;
+    margin: 2px;
+  }
+  form {
+    width: 70%;
+    margin: 200px;
+    padding: 90px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: lightgrey;
+  }
+  label {
+    font-size: 25px;
+    justify-content: left;
+  }
+  input {
+        display: block;
+        justify-content: center;
+        /* margin: auto; */
+        margin: 0px;
+        position: relative;
+        left: 20px;
+        width: 90%;
+        font-family: arial;
+        border-radius: 5px;
+        font-size: 12px;
+        text-shadow: none;
+        height: 50px;
+        background-color: white;
+        padding: 5px;
+    }
+    button {
+        background-color: black;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 12px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 15px 2px;
+        cursor: pointer;
+      }
 `

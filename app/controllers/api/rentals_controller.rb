@@ -15,6 +15,25 @@ class Api::RentalsController < ApplicationController
 
     end
 
+    def destroy
+        rental = Rental.find(params[:id])
+        rental.destroy
+        {message: "Rental Deleted"}.to_json
+    end
+
+    def update
+        rental = Rental.find(params[:id])
+        rental.update({
+            year: params[:year],
+            make: params[:make],
+            model: params[:model],
+            city: params[:city],
+            state: params[:state],
+            price: params[:price],
+            image_url: params[:image_url],
+        })
+    end
+
     def rental_params
         params.permit(:year, :make, :model, :image_url, :price, :city, :state, :user_id)
     end

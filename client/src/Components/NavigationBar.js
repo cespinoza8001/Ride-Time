@@ -15,6 +15,7 @@ function NavigationBar({ currentUser, setCurrentUser }){
                 <NavDropdown title="Rentals" id="collasible-nav-dropdown">
                    <NavDropdown.Item href="/rentals">View Rentals</NavDropdown.Item>
                    <NavDropdown.Item href="/newrental">Create Rental</NavDropdown.Item>
+                   <NavDropdown.Item href="/myrentals">My Rentals</NavDropdown.Item>
                    </NavDropdown>
                    <Nav.Item><Nav.Link href="/favorites">Favorites</Nav.Link></Nav.Item> 
                    <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> 
