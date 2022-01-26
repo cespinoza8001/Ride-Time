@@ -12,6 +12,7 @@ import AccountRentalContainer from "./AccountRentalContainer";
 
 
 
+
 function LoggedInApp({ setCurrentUser, currentUser }) {
 
   const [search, setSearch] = useState("")
