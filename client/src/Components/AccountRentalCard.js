@@ -72,6 +72,7 @@ function AccountRentalCard({
         .then(() => handleDelete(id))
       }
 
+      console.log(id)
   return (
     <ListStyle>
     <CardGroup className="m-5 d-block">
@@ -83,7 +84,7 @@ function AccountRentalCard({
           <Card.Text>Price: ${price}/day</Card.Text>
           <Card.Text>User: {userInfo.username}</Card.Text>
             <button onClick={handleDelete}>🗑️</button>
-            <EditRentalForm/>
+            <EditRentalForm id={id}/>
         </Card.Body>    
     </Card>
     </CardGroup>

@@ -100,11 +100,11 @@ export default RentalCard;
 
 const ListStyle = styled.div`
     display: inline-block;
-    padding: 5px;
-    margin: 10px;
+    padding: 0px;
+    margin: 15px;
     text-align: center;
     background-color: #222;
-    border-radius: 20px;
+    border-radius: 15px;
     animation-name: undoColorChange;
     animation-duration: 0.75s;
     @keyframes undoColorChange {

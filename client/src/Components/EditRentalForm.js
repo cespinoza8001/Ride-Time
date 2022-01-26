@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
-function EditRentalForm(currentUser, setCurrentUser) {
+function EditRentalForm({currentUser, setCurrentUser, id}) {
 
     const [editData, setEditData] = useState({
         year: "",
@@ -27,7 +27,8 @@ function EditRentalForm(currentUser, setCurrentUser) {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        fetch(`api/update`, {
+        console.log(id)
+        fetch(`api/rentals/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editData),

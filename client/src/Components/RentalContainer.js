@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RentalCard from "./RentalCard"
 import SearchBar from './SearchBar';
 import NavigationBar from './NavigationBar';
+import styled from 'styled-components';
 
 
 
@@ -27,11 +28,16 @@ function RentalContainer({ search, onSearch, currentUser }){
 
 
       return(
-          <div>
+          <ContainerStyle>
           <SearchBar onSearch={onSearch}/>
               {renderRentals}
-          </div>
+          </ContainerStyle>
       )
 }
 
 export default RentalContainer;
+
+const ContainerStyle = styled.div`
+   
+    background-color: grey;
+      `

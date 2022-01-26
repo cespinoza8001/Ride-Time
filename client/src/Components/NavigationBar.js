@@ -8,7 +8,7 @@ function NavigationBar({ currentUser, setCurrentUser }){
     return (
     <Styles>
         <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand href="/">Ride Time</Navbar.Brand>
+            <Navbar.Brand href="/">RideTime <i class="fas fa-motorcycle"></i></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ms-auto">
@@ -36,7 +36,7 @@ const Styles = styled.div`
     }
 
     .navbar-brand, .navbar-nav .nav-link {
-        color: #bbb;
+        color: white;
         
 
     &:hover {
