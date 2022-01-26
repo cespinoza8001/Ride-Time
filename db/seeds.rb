@@ -1,5 +1,8 @@
 require 'faker'
+Favorite.destroy_all
 User.destroy_all
+Rental.destroy_all
+
 
 
 puts "🌱 Seeding spices..."
