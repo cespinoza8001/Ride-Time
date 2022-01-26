@@ -28,12 +28,12 @@ Rental.create(year: 2018, make: "Yamaha", model: "R1", price: 120, city: "Atlant
 Rental.create(year: 2017, make: "Suzuki", model: "GSX-R 1000", price: 140, city: "Denver", state: "CO", image_url: "https://i.pinimg.com/originals/8f/49/34/8f493432daf9ea080f8003f51fe73d2d.jpg", user_id: 11)
 Rental.create(year: 2022, make: "Indian", model: "FTR", price: 200, city: "Denver", state: "CO", image_url: "https://ridermagazine.com/wp-content/uploads/2021/01/2022-Indian-FTR-1200-S-2.jpg", user_id: 12)
 
-5.times {
-    Favorite.create({
-        rental_id: Rental.all.sample.id,
-        user_id: User.all.sample.id 
-    })
-}
+# 5.times {
+#     Favorite.create({
+#         rental_id: Rental.all.sample.id,
+#         user_id: User.all.sample.id 
+#     })
+# }
 
 puts "✅ Done seeding!"
 
