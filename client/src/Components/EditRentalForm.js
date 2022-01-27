@@ -60,6 +60,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
         <div>
             <div>
         {isSelected ? 
+            <LoginStyle>
             <form className="edit-form" onSubmit={handleEdit}>
             <h2>Edit Your Rental!</h2>
             <label>
@@ -106,7 +107,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
             </label>
             <label>
                 State:
-                <textarea
+                <input
                 id="state"
                 placeholder="Update your State..."
                 value={editData.state}
@@ -115,7 +116,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
             </label>
             <label>
                 Price:
-                <textarea
+                <input
                 id="price"
                 placeholder="Update the price..."
                 value={editData.price}
@@ -133,6 +134,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
             </label>
             <button type="submit">Share!</button>
             </form>
+            </LoginStyle>
         :
         <EditButtonStyle>
             <button onClick={handleNewEditClick}>Edit Your Rental</button>
@@ -162,4 +164,51 @@ button {
     cursor: pointer;
     box-shadow: 5px 5px grey;
 }
+`
+const LoginStyle = styled.div`
+display: flex;
+justify-content: center;
+  h2 {
+    font-size: 20px;
+    margin: 1px;
+  }
+  form {
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: lightgrey;
+  }
+  label {
+    font-size: 25px;
+    justify-content: left;
+  }
+  input {
+        display: block;
+        justify-content: center;
+        /* margin: auto; */
+        margin: 30px;
+        position: relative;
+        left: 20px;
+        width: 70%;
+        font-family: arial;
+        border-radius: 5px;
+        font-size: 15px;
+        text-shadow: none;
+        height: 25px;
+        background-color: white;
+        padding: 5px;
+    }
+    button {
+        background-color: black;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 12px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 15px 2px;
+        cursor: pointer;
+      }
 `

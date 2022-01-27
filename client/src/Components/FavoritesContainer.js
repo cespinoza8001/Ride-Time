@@ -31,3 +31,4 @@ function FavoritesContainer({ currentUser }) {
 
 
 export default FavoritesContainer;
+

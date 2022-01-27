@@ -1,0 +1,101 @@
+.order-area {
+    margin-top: 50px;
+}
+
+.order-total {
+    margin-top: 10px;
+    background: #053742;
+    color: white;
+    font-weight: bold;
+}
+
+.order-card,
+.order-total {
+    margin: 0 0 10px 20%;
+    border: 1px solid #053742;
+    width: 60%;
+    padding: 10px;
+}
+
+.order-item, 
+.order-qty, 
+.order-price {
+    display: inline-flex;
+    min-width: 28%;
+}
+
+.qty-btn {
+    font-weight: bold;
+    background: white;
+    outline: none;
+    border: 1px solid #053742;
+    padding: 2px 7px;
+}
+
+.qty-btn:hover {
+    background: #053742;
+    color: white;
+}
+
+.qty-btn:active {
+    background: #51c4d3
+}
+
+.qty-input {
+    width: 30px;
+    text-align: center;
+}
+
+.delete-btn {
+    color: red;
+    outline: none; 
+    border: 1px solid red;
+    border-radius: 20px;
+    background: white;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.delete-btn:hover {
+    background: red;
+    color: white;  
+}
+
+.delete-btn:active {
+    background-color: crimson;
+    border: 1px solid crimson;
+}
+
+.total, 
+.total-price, 
+.place-order-btn {
+    display: inline-flex;
+}
+
+.total {
+    min-width: 55%;
+}
+
+.total-price {
+    min-width: 33%;
+    text-align: right;
+}
+
+.place-order-btn {
+    border: 1px solid rgb(255, 238, 0);
+    background-color: rgb(255, 238, 0);
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+.place-order-btn:hover {
+    border: 1px solid rgb(255, 188, 3);
+    background-color: rgb(255, 188, 3);
+}
+
+.place-order-btn:active {
+    border: 1px solid rgb(251, 255, 0);
+    background-color: rgb(251, 255, 0);
+}

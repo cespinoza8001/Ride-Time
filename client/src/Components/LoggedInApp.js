@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 import NavigationBar from "./NavigationBar";
 import FavoritesPage from "./FavoritesPage";
 import AccountRentalContainer from "./AccountRentalContainer";
+import Cart from "./Cart";
+
 
 
 
@@ -65,6 +67,13 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
           element={<AccountRentalContainer currentUser={currentUser} />}
         />
         </Routes>
+        <Routes>
+        <Route
+          exact
+          path="/cart"
+          element={<Cart currentUser={currentUser} />}
+        />
+        </Routes>
       <Routes>
         <Route
           exact
@@ -77,3 +86,5 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
   }
   
   export default LoggedInApp;
+
+

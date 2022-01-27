@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardGroup } from 'react-bootstrap'
-import styled from 'styled-components'
+import { Card, CardGroup, Button } from 'react-bootstrap'
+import styled, { keyframes } from 'styled-components'
 
 
 function RentalCard({
@@ -66,29 +66,33 @@ function RentalCard({
   return (
     <ListStyle>
     <CardGroup className="m-5 d-block">
-    <Card border="dark" style={{ width: '25rem' }}>
+    <Card border="dark" style={{ width: '25rem' }} className='cardColor'>
         <Card.Img src={image_url} alt="rentalimage" className="rental-image"/>
         <Card.Body>
-          <Card.Title>{year} {make} {model}</Card.Title>
-          <Card.Text>Location: {city},{state}</Card.Text>
-          <Card.Text>Price: ${price}/day</Card.Text>
-          <Card.Text>User: {userInfo.username}</Card.Text>
+          <Card.Title className='rental-info'>{year} {make} {model}</Card.Title>
+          <Card.Text className='rental-location'>{city},{state}</Card.Text>
+          <Card.Text className='rental-price'>${price}/day</Card.Text>
+          <Card.Text className='rental-user'>{userInfo.username}</Card.Text>
           {isFavorited ? (
-              <button
+              <Button
+                variant='success'
                 onClick={(e) => handleUnfavorite(e)}
                 className="emoji-button favorite active"
               >
                 ★
-              </button>
+              </Button>
             ) : (
-              <button id={id}
+              <Button id={id}
+                variant='secondary'
                 onClick={handleClick}
                 className="emoji-button favorite"
               >
                 ☆
-              </button>
+              </Button>
             )}
-        </Card.Body>    
+            
+        </Card.Body> 
+        <Button variant='success' className='add-btn'>Add To Cart</Button>   
     </Card>
     </CardGroup>
     </ListStyle>
@@ -103,21 +107,54 @@ const ListStyle = styled.div`
     padding: 0px;
     margin: 15px;
     text-align: center;
-    background-color: #222;
+    background-color: ;
     border-radius: 15px;
     animation-name: undoColorChange;
     animation-duration: 0.75s;
     @keyframes undoColorChange {
-        from {background-color: #b742d4; transform: scale(1.05,1.05);}
-        to {background-color: #222;}
+        from {background-color: #42EDFF; transform: scale(1.05,1.05);}
+        to {background-color: ;}
       }
       
     @keyframes colorChange {
-        from {background-color: #222;}
-        to {background-color: #b742d4; transform: scale(1.05,1.05);}
+        from {background-color: ;}
+        to {background-color: #42EDFF; transform: scale(1.05,1.05);}
       }
 
     .rental-image {
       height: 300px
+    }
+
+    .cardColor {
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .cardColor:hover {
+      transform: scale(1.03);
+      box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+    }
+
+    .rental-info {
+      font-style: italic;
+      letter-spacing: 1px;
+      font-size: 25px;
+    }
+
+    .rental-location {
+      @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+      font-family: 'Josefin Sans', cursive;
+      font-size: 20px;
+    }
+
+    .rental-price {
+      @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+      font-family: 'Josefin Sans', cursive;
+      font-size: 20px;
+    }
+
+    .rental-user {
+      @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+      font-family: 'Josefin Sans', cursive;
     }
       `

@@ -7,7 +7,7 @@ function NavigationBar({ currentUser, setCurrentUser }){
 
     return (
     <Styles>
-        <Navbar collapseOnSelect expand="lg">
+        <Navbar collapseOnSelect expand="lg" style={{ height: 70}}>
             <Navbar.Brand href="/">RideTime <i class="fas fa-motorcycle"></i></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -18,6 +18,7 @@ function NavigationBar({ currentUser, setCurrentUser }){
                    <NavDropdown.Item href="/myrentals">My Rentals</NavDropdown.Item>
                    </NavDropdown>
                    <Nav.Item><Nav.Link href="/favorites">Favorites</Nav.Link></Nav.Item> 
+                   <Nav.Item><Nav.Link href="/Cart">Cart<i class="fas fa-shopping-cart"></i></Nav.Link></Nav.Item> 
                    <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> 
                 </Nav>
             </Navbar.Collapse>

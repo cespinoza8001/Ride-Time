@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import AccountRentalCard from "./AccountRentalCard"
+import styled from 'styled-components';
 
 function AccountRentalContainer({ currentUser }) {
 
@@ -29,11 +30,23 @@ function AccountRentalContainer({ currentUser }) {
 
 
     return (
-        <div>
-        <h3>Your Rentals:</h3>
+        <ContainerStyle>
+        <h3 className='my-rentals'>Your Rentals:</h3>
             {renderRentals}
-        </div>
+        </ContainerStyle>
     )
 }
 
 export default AccountRentalContainer;
+
+const ContainerStyle = styled.div`
+   
+    background-color: ;
+
+    .my-rentals {
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 60px;
+        text-decoration: underline;
+    }
+      `
