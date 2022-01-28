@@ -63,7 +63,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
             <LoginStyle>
             <form className="edit-form" onSubmit={handleEdit}>
             <h2>Edit Your Rental!</h2>
-            <label>
+            {/* <label>
                 Year:
                 <input
                 type="text"
@@ -94,7 +94,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
                 value={editData.model}
                 onChange={(e) => handleChange(e)}
                 />
-            </label>
+            </label> */}
             <label>
                 City:
                 <input
@@ -124,7 +124,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
                 />
             </label>
             <label>
-                Rental Image:
+                Image URL:
                 <input
                 type="text"
                 id="image_url"
@@ -132,7 +132,7 @@ function EditRentalForm({currentUser, setCurrentUser, id}) {
                 onChange={(e) => handleChange(e)}
                 />
             </label>
-            <button type="submit">Share!</button>
+            <button type="submit">Update</button>
             </form>
             </LoginStyle>
         :
@@ -169,8 +169,10 @@ const LoginStyle = styled.div`
 display: flex;
 justify-content: center;
   h2 {
-    font-size: 20px;
+    font-size: 25px;
     margin: 1px;
+    font-style: italic;
+    letter-spacing: 1px;
   }
   form {
     width: 100%;
@@ -181,8 +183,10 @@ justify-content: center;
     background-color: lightgrey;
   }
   label {
-    font-size: 25px;
+    font-size: 20px;
     justify-content: left;
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+    font-family: 'Josefin Sans', cursive;
   }
   input {
         display: block;

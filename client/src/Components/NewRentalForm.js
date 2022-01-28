@@ -47,7 +47,7 @@ function NewRentalForm({ currentUser }) {
         <div>
             <LoginStyle>
             <form className="post-form" onSubmit={handlePost}>
-            <h2>Rent Your Bike!</h2>
+            <h2 className='title'>Rent Your Bike!</h2>
             <label>
                 Year:
                 <input
@@ -224,6 +224,8 @@ justify-content: center;
   h2 {
     font-size: 40px;
     margin: 2px;
+    font-style: italic;
+    letter-spacing: 1px;
   }
   form {
     width: 70%;
@@ -236,6 +238,8 @@ justify-content: center;
   label {
     font-size: 25px;
     justify-content: left;
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+    font-family: 'Josefin Sans', cursive;
   }
   input {
         display: block;

@@ -70,6 +70,7 @@ function AccountRentalCard({
         })
         .then(res => res.json())
         .then(() => handleDelete(id))
+        window.location.reload(false)
       }
 
       console.log(id)
@@ -121,7 +122,8 @@ const ListStyle = styled.div`
     .rental-info {
       font-style: italic;
       letter-spacing: 1px;
-      font-size: 25px;
+      font-size: 23px;
+      text-decoration: underline;
     }
 
     .rental-location {

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 
 
+
 function FavoritesCard({
     fav: {id, username, rental, user_id, rental_id}, currentUser
   }) {
@@ -71,8 +72,9 @@ function FavoritesCard({
                 method: 'DELETE'
               })
               .then(resp => resp.json())
-              .then(data => window.location.reload(false))
+              .then(data => console.log(data))
           })
+          window.location.reload(false)
         }
       })
         setIsFavorited(false)
@@ -141,7 +143,8 @@ function FavoritesCard({
         .rental-info {
           font-style: italic;
           letter-spacing: 1px;
-          font-size: 25px;
+          font-size: 23px;
+          text-decoration: underline;
         }
 
         .rental-location {

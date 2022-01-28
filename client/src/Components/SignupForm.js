@@ -89,17 +89,23 @@ justify-content: center;
   h1 {
     font-size: 40px;
     margin: 2px;
+    color: white;
   }
   form {
     width: 30%;
     margin: 250px;
     padding: 10px;
-    border: 5px solid palevioletred;
+    border: 5px solid white;
     border-radius: 10px;
+    background-color: rgba(52, 52, 52, 0.8);
   }
   label {
     font-size: 20px;
     justify-content: left;
+    color: white;
+  }
+  p {
+    color: white;
   }
   input {
         display: block;

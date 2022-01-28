@@ -46,7 +46,7 @@ function RentalCard({
         .then(data => {
   
           const var1 = data.filter(rental => {
-            return (rental.user_id === currentUser) && (rental.id === id)
+            return (rental.user_id === currentUser) && (rental.id === rental.id)
           })
           
           if (var1 !== []) {
@@ -55,8 +55,9 @@ function RentalCard({
                 method: 'DELETE'
               })
               .then(resp => resp.json())
-              .then(data => window.location.reload(false))
+              .then(data => console.log(data))
           })
+          window.location.reload(false)
         }
       })
         setIsFavorited(false)
@@ -75,7 +76,7 @@ function RentalCard({
           <Card.Text className='rental-user'>{userInfo.username}</Card.Text>
           {isFavorited ? (
               <Button
-                variant='success'
+                variant='danger'
                 onClick={(e) => handleUnfavorite(e)}
                 className="emoji-button favorite active"
               >
@@ -83,7 +84,7 @@ function RentalCard({
               </Button>
             ) : (
               <Button id={id}
-                variant='secondary'
+                variant='success'
                 onClick={handleClick}
                 className="emoji-button favorite"
               >
@@ -138,7 +139,8 @@ const ListStyle = styled.div`
     .rental-info {
       font-style: italic;
       letter-spacing: 1px;
-      font-size: 25px;
+      font-size: 23px;
+      text-decoration: underline;
     }
 
     .rental-location {
