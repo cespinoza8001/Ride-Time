@@ -92,7 +92,7 @@ function FavoritesCard({
               <Card.Text className='rental-price'>${rentalInfo.price}/day</Card.Text>
               {isFavorited ? (
               <Button
-                variant='success'
+                variant='danger'
                 onClick={handleUnfavorite}
                 className="emoji-button favorite active"
               >
@@ -100,7 +100,7 @@ function FavoritesCard({
               </Button>
             ) : (
               <Button id={id}
-                variant='secondary'
+                variant='success'
                 onClick={handleClick}
                 className="emoji-button favorite"
               >
