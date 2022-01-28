@@ -1,5 +1,6 @@
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styled from 'styled-components'
+import { useNavigate } from "react-router-dom";
 
 
 function NavigationBar({ currentUser, setCurrentUser }){
@@ -18,7 +19,7 @@ function NavigationBar({ currentUser, setCurrentUser }){
                    <NavDropdown.Item href="/myrentals">My Rentals</NavDropdown.Item>
                    </NavDropdown>
                    <Nav.Item><Nav.Link href="/favorites">Favorites</Nav.Link></Nav.Item> 
-                   <Nav.Item><Nav.Link href="/Cart">Cart<i class="fas fa-shopping-cart"></i></Nav.Link></Nav.Item> 
+                   {/* <Nav.Item><Nav.Link href="/Cart">Cart<i class="fas fa-shopping-cart"></i></Nav.Link></Nav.Item>  */}
                    <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> 
                 </Nav>
             </Navbar.Collapse>

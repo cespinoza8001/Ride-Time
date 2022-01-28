@@ -67,13 +67,13 @@ function LoggedInApp({ setCurrentUser, currentUser }) {
           element={<AccountRentalContainer currentUser={currentUser} />}
         />
         </Routes>
-        <Routes>
+        {/* <Routes>
         <Route
           exact
           path="/cart"
           element={<Cart currentUser={currentUser} />}
         />
-        </Routes>
+        </Routes> */}
       <Routes>
         <Route
           exact

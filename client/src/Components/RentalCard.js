@@ -92,7 +92,7 @@ function RentalCard({
             )}
             
         </Card.Body> 
-        <Button variant='success' className='add-btn'>Add To Cart</Button>   
+        {/* <Button variant='success' className='add-btn'>Add To Cart</Button>    */}
     </Card>
     </CardGroup>
     </ListStyle>
